@@ -3,7 +3,7 @@ import B from "@/public/b.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[70vh] flex items-center">
+    <section className="relative min-h-[60vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
