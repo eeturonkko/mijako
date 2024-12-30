@@ -1,38 +1,19 @@
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12" id="contact">
+    <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Mijako Security Systems</h3>
+            <h3 className="text-xl font-bold mb-4">Mijako Oy</h3>
             <p className="mb-4">
-              Securing your world with advanced technology and unparalleled
-              service.
+              Lukitus- ja turvatekniikan konsultointipalvelu
             </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="hover:text-purple-400">
-                <Facebook />
-              </Link>
-              <Link href="#" className="hover:text-purple-400">
-                <Twitter />
-              </Link>
-              <Link href="#" className="hover:text-purple-400">
-                <Instagram />
-              </Link>
-            </div>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-4"></h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#" className="hover:text-purple-400">
@@ -40,33 +21,28 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-purple-400">
+                <Link href="#services" className="hover:text-purple-400">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-purple-400">
+                <Link href="#about" className="hover:text-purple-400">
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-400">
-                  Contact
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4">Yhteystiedot</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
-                <Mail className="mr-2" /> info@mijako.com
+                <Mail className="mr-2" /> milla.ronkko@mijako.fi
               </li>
               <li className="flex items-center">
-                <Phone className="mr-2" /> +1 (555) 123-4567
+                <Phone className="mr-2" /> +358 45 6954 147
               </li>
               <li className="flex items-center">
-                <MapPin className="mr-2" /> 123 Security St, Locktown, ST 12345
+                <MapPin className="mr-2" /> Y-tunnus: 2245428-1
               </li>
             </ul>
           </div>
