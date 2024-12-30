@@ -16,18 +16,13 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4"></h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-purple-400">
-                  Home
-                </Link>
-              </li>
-              <li>
                 <Link href="#services" className="hover:text-purple-400">
-                  Services
+                  Palvelut
                 </Link>
               </li>
               <li>
                 <Link href="#about" className="hover:text-purple-400">
-                  About Us
+                  Meistä
                 </Link>
               </li>
             </ul>
