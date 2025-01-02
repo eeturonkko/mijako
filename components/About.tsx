@@ -1,26 +1,15 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import BlackWhiteKey from "@/public/blackwhitekey.jpg";
 
 export default function About() {
   return (
-    <section className="py-20">
+    <section className="py-14 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg">
-            <Image
-              src={BlackWhiteKey}
-              alt="Vintage key in keyhole - representing Mijako's security heritage"
-              className="rounded-lg shadow-lg w-full h-auto object-fill "
-              width={800}
-              height={600}
-              placeholder="blur"
-              priority
-            />
-          </div>
-          <div className="w-full md:w-1/2 space-y-6">
-            <h2 className="text-3xl font-bold">Meistä</h2>
-            <p className="text-lg text-gray-700">
+        <div className="flex flex-col items-center justify-center text-center gap-10">
+          <div className="w-full md:w-3/4 space-y-6">
+            <h2 className="text-4xl font-bold text-center drop-shadow-xl text-purple-800">
+              Meistä
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
               Olemme erikoistuneet lukitusjärjestelmien suunnitteluun ja
               oviympäristöjen optimointiin. Palvelu tuotetaan aina tarpeidenne
               mukaisesti ja tarpeitanne vastaavassa laajuudessa. Olette
@@ -36,7 +25,7 @@ export default function About() {
               toimintaamme. Kun tarvitset kokenutta ja asiantuntevaa kumppania
               kiinteistösi turvatekniseen suunnitteluun, ota yhteyttä.
             </p>
-            <Button className="bg-purple-800 text-white hover:bg-purple-900 font-semibold px-8 py-5">
+            <Button className="bg-purple-800 text-white hover:bg-purple-900 font-semibold px-8 py-4 rounded-lg shadow-lg transform transition-transform duration-200 hover:scale-105">
               <a href="#contact">Ota yhteyttä</a>
             </Button>
           </div>
