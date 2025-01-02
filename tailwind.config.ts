@@ -66,9 +66,20 @@ export default {
             "background-position": "100% 50%",
           },
         },
+        fadeSlideDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-20px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "gradient-flow-subtle": "gradient-flow-subtle 60s ease-in-out infinite",
+        fadeSlideDown: "fadeSlideDown 0.6s ease-out",
       },
     },
   },
