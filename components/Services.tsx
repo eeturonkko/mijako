@@ -6,23 +6,23 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Home, Building2 } from "lucide-react";
+import { ShieldCheck, PenLine, Handshake } from "lucide-react";
 
 const services = [
   {
-    icon: <ShieldCheck className="w-10 h-10 mb-4 text-purple-800" />,
+    icon: <PenLine className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Suunnittelu",
     description:
       "Oviympäristön tuotteiden suunnitteluuudis- ja saneerauskohteisiin. Palvelu on toimittajasta riippumaton",
   },
   {
-    icon: <Home className="w-10 h-10 mb-4 text-purple-800" />,
+    icon: <ShieldCheck className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Valvonta",
     description:
       "Suunnitelmien toteutuksen valvonta. Palvelu on tilaajan edunvalvontaa hankkeiden toteutusvaiheessa. ",
   },
   {
-    icon: <Building2 className="w-10 h-10 mb-4 text-purple-800" />,
+    icon: <Handshake className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Tukitoiminnot",
     description: "Konsultointi ja suunnittelusta poikkeava selvitystyö.",
   },
