@@ -1,35 +1,30 @@
+import Link from "next/link";
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { ShieldCheck, Home, Building2, Key } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ShieldCheck, Home, Building2 } from "lucide-react";
 
 const services = [
   {
     icon: <ShieldCheck className="w-10 h-10 mb-4 text-purple-800" />,
-    title: "Advanced Security Systems",
+    title: "Suunnittelu",
     description:
-      "State-of-the-art security systems tailored to your specific needs.",
+      "Oviympäristön tuotteiden suunnitteluuudis- ja saneerauskohteisiin. Palvelu on toimittajasta riippumaton",
   },
   {
     icon: <Home className="w-10 h-10 mb-4 text-purple-800" />,
-    title: "Residential Solutions",
+    title: "Valvonta",
     description:
-      "Protect your home and loved ones with our comprehensive security solutions.",
+      "Suunnitelmien toteutuksen valvonta. Palvelu on tilaajan edunvalvontaa hankkeiden toteutusvaiheessa. ",
   },
   {
     icon: <Building2 className="w-10 h-10 mb-4 text-purple-800" />,
-    title: "Commercial Security",
-    description:
-      "Safeguard your business with our cutting-edge commercial security systems.",
-  },
-  {
-    icon: <Key className="w-10 h-10 mb-4 text-purple-800" />,
-    title: "Smart Lock Technology",
-    description:
-      "Experience the convenience and security of our smart lock solutions.",
+    title: "Tukitoiminnot",
+    description: "Konsultointi ja suunnittelusta poikkeava selvitystyö.",
   },
 ];
 
@@ -38,18 +33,28 @@ export default function Services() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-24 drop-shadow-xl">
-          Palvelumme
+          Palvelukonsepti
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="text-center">
-              <CardHeader>
-                <div className="flex justify-center">{service.icon}</div>
-                <CardTitle>{service.title}</CardTitle>
-                <CardDescription>{service.description}</CardDescription>
-              </CardHeader>
+            <Card
+              key={index}
+              className="text-center hover:shadow-lg hover:scale-105 transition-transform"
+            >
+              <Link href={`/palvelut#${service.title.toLowerCase()}`}>
+                <CardHeader>
+                  <div className="flex justify-center">{service.icon}</div>
+                  <CardTitle>{service.title}</CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
+                </CardHeader>
+              </Link>
             </Card>
           ))}
+        </div>
+        <div className="flex justify-center mt-12">
+          <Button className="bg-purple-800 text-white hover:bg-purple-900 font-semibold px-8 py-5">
+            <Link href={`/palvelut`}>Lue lisää</Link>
+          </Button>
         </div>
       </div>
     </section>

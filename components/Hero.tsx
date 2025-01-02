@@ -9,7 +9,7 @@ export default function Hero() {
         <Image
           src={B}
           alt="Background image for Mijako hero"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full "
           priority
           placeholder="blur"
         />
@@ -17,7 +17,7 @@ export default function Hero() {
         <div
           className={`
             absolute inset-0
-            bg-gradient-to-r from-purple-900/80 via-purple-700/60 to-purple-600/60
+            bg-gradient-to-r from-purple-800/70 via-purple-600/60 to-purple-500/60
             bg-[length:200%_200%]
             animate-gradient-flow-subtle
           `}
@@ -30,7 +30,7 @@ export default function Hero() {
           <h1 className="text-4xl md:text-8xl font-bold mb-4 mt-10 text-white">
             Mijako Oy
           </h1>
-          <p className="text-2xl mb-8 max-w-2xl text-white/90">
+          <p className="text-2xl font-semibold mb-8 max-w-2xl text-white">
             Lukitus- ja turvatekniikan konsultointipalvelu
           </p>
         </div>

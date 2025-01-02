@@ -36,7 +36,7 @@ export default function About() {
               toimintaamme. Kun tarvitset kokenutta ja asiantuntevaa kumppania
               kiinteistösi turvatekniseen suunnitteluun, ota yhteyttä.
             </p>
-            <Button className="bg-purple-800 text-white hover:bg-purple-900">
+            <Button className="bg-purple-800 text-white hover:bg-purple-900 font-semibold px-8 py-5">
               <a href="#contact">Ota yhteyttä</a>
             </Button>
           </div>
