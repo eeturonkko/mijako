@@ -59,7 +59,7 @@ export default function ServiceDetails() {
         <Card
           key={service.id}
           id={service.id}
-          className="scroll-mt-20 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          className="scroll-mt-20 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeSlideDown delay-500"
         >
           <CardHeader className="bg-gradient-to-r from-purple-700 to-purple-900 text-white p-6">
             <div className="flex items-center space-x-4">

@@ -12,7 +12,9 @@ export default function PalvelutPage() {
   return (
     <main className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-12">Palvelut</h1>
+        <h1 className="text-4xl font-bold text-center mb-12 animate-fadeSlideDown">
+          Palvelut
+        </h1>
         <ServiceDetails />
       </div>
     </main>
