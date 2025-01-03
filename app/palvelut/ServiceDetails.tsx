@@ -1,5 +1,5 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { PenLine, ShieldCheck, Handshake } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const services = [
   {
@@ -7,7 +7,7 @@ const services = [
     icon: <PenLine className="w-12 h-12 text-purple-800" />,
     title: "Suunnittelu",
     description:
-      "Oviympäristön tuotteiden suunnitteluuudis- ja saneerauskohteisiin. Palvelu on toimittajasta riippumaton",
+      "Oviympäristön tuotteiden suunnitteluun uusissa ja saneerauskohteissa. Palvelu on toimittajariippumaton.",
     details: [
       "Materiaaleihin ja hankkeeseen perehtyminen",
       "Kohdekartoitus (saneerauskohteet)",
@@ -15,7 +15,7 @@ const services = [
       "Lukitus- ja turvatuotteiden valinta ovityypin ja tilan käyttötarkoituksen/ympäristön mukaan",
       "Sijoituspohjakuvat",
       "Ovikohtainen heloitus- ja lukitussuunnitelma",
-      "Alustavat kulkualue/valvonta-alue määritykset ja avain/tunniste tiedot",
+      "Alustavat kulku- ja valvonta-alueiden määritykset sekä avain- ja tunnistetiedot",
       "Yhteensovittaminen oviympäristöön liittyvien toimijoiden kanssa (esim. lukitus-, kulunvalvonta-, sähkö-, automaatiosuunnittelu)",
       "Suunnitelmien tarkistukset ja korjaukset",
       "Suunnittelupalaverit",

@@ -13,18 +13,19 @@ const services = [
     icon: <PenLine className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Suunnittelu",
     description:
-      "Oviympäristön tuotteiden suunnitteluuudis- ja saneerauskohteisiin. Palvelu on toimittajasta riippumaton.",
+      "Oviympäristön tuotteiden suunnittelu uusissa ja saneerauskohteissa. Palvelu on toimittajariippumaton.",
   },
   {
     icon: <ShieldCheck className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Valvonta",
     description:
-      "Suunnitelmien toteutuksen valvonta. Palvelu on tilaajan edunvalvontaa hankkeiden toteutusvaiheessa. ",
+      "Suunnitelmien toteutuksen valvonta. Palvelu on tilaajan edunvalvontaa hankkeiden toteutusvaiheessa.",
   },
   {
     icon: <Handshake className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Tukitoiminnot",
-    description: "Konsultointi ja suunnittelusta poikkeava selvitystyö.",
+    description:
+      "Konsultointi ja suunnittelusta poikkeava selvitystyö, kuten tuotteiden soveltuvuuden arviointi.",
   },
 ];
 
@@ -44,10 +45,10 @@ export default function Services() {
               <Link href={`/palvelut#${service.title.toLowerCase()}`}>
                 <CardHeader>
                   <div className="flex justify-center">{service.icon}</div>
-                  <CardTitle className="text-xl shadow-2xl ">
+                  <CardTitle className="text-xl shadow-2xl">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="text-lg text-balance text-gray-600 leading-relaxed">
+                  <CardDescription className="text-lg text-gray-600 leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
@@ -57,7 +58,7 @@ export default function Services() {
         </div>
         <div className="flex justify-center mt-12">
           <Button className="bg-purple-800 text-white hover:bg-purple-900 font-semibold px-8 py-5">
-            <Link href={`/palvelut`}>Lue lisää</Link>
+            <Link href="/palvelut">Lue lisää</Link>
           </Button>
         </div>
       </div>
