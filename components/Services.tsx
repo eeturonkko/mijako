@@ -13,7 +13,7 @@ const services = [
     icon: <PenLine className="w-10 h-10 mb-4 text-purple-800" />,
     title: "Suunnittelu",
     description:
-      "Oviympäristön tuotteiden suunnitteluuudis- ja saneerauskohteisiin. Palvelu on toimittajasta riippumaton",
+      "Oviympäristön tuotteiden suunnitteluuudis- ja saneerauskohteisiin. Palvelu on toimittajasta riippumaton.",
   },
   {
     icon: <ShieldCheck className="w-10 h-10 mb-4 text-purple-800" />,
@@ -44,8 +44,12 @@ export default function Services() {
               <Link href={`/palvelut#${service.title.toLowerCase()}`}>
                 <CardHeader>
                   <div className="flex justify-center">{service.icon}</div>
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
+                  <CardTitle className="text-xl shadow-2xl ">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-lg text-balance text-gray-600 leading-relaxed">
+                    {service.description}
+                  </CardDescription>
                 </CardHeader>
               </Link>
             </Card>
