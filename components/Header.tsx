@@ -8,8 +8,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
   return (
     <header
       className="
@@ -22,21 +24,33 @@ export default function Header() {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="#services" legacyBehavior passHref>
+              <Link
+                href={`${pathname === "/palvelut" ? "/" : "palvelut"}`}
+                legacyBehavior
+                passHref
+              >
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Palvelut
+                  {pathname === "/palvelut" ? "Etusivu" : "Palvelut"}
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="#about" legacyBehavior passHref>
+              <Link
+                href={`${pathname === "/palvelut" ? "/#about" : "#about"}`}
+                legacyBehavior
+                passHref
+              >
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Meistä
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="#contact" legacyBehavior passHref>
+              <Link
+                href={`${pathname === "/palvelut" ? "/#contact" : "#contact"}`}
+                legacyBehavior
+                passHref
+              >
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Yhteystiedot
                 </NavigationMenuLink>
