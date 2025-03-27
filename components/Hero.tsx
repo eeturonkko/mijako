@@ -1,36 +1,36 @@
-import Image from "next/image";
-import B from "@/public/b.jpg";
-
 export default function Hero() {
   return (
-    <section className="relative min-h-[60vh] flex items-center">
-      {/* Background Image */}
+    <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={B}
-          alt="Background image for Mijako hero"
-          className="object-cover w-full h-full "
-          priority
-          placeholder="blur"
-        />
-        {/* Animated Gradient Overlay */}
+        <video
+          autoPlay
+          muted
+          playsInline
+          loop
+          className="w-full h-full object-cover"
+        >
+          <source src="/keyvideo2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Purple Gradient Overlay */}
         <div
           className={`
             absolute inset-0
-            bg-gradient-to-r from-purple-800/70 via-purple-600/60 to-purple-500/60
+            bg-gradient-to-r from-purple-900/60 via-purple-700/50 to-purple-600
             bg-[length:200%_200%]
-            animate-gradient-flow-subtle
+           
           `}
         />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center text-center drop-shadow-xl">
+        <div className="flex flex-col items-center text-center drop-shadow-2xl">
           <h1 className="text-4xl md:text-8xl font-bold mb-4 mt-10 text-white">
             Mijako Oy
           </h1>
-          <p className="text-2xl font-semibold mb-8 max-w-2xl text-white">
+          <p className="text-2xl font-semibold mb-8 max-w-2xl text-white drop-shadow-2xl">
             Lukitus- ja turvatekniikan konsultointipalvelu
           </p>
         </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Lock from "@/public/lock3.jpg";
+/* import Lock2 from "@/public/20250327_2118_Freshly Updated Lock_remix_01jqcgmypweaktx1rnxxte25tt.png"; */
 
 export default function About() {
   return (
