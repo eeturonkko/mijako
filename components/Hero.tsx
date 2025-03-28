@@ -4,6 +4,7 @@ export default function Hero() {
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
+          preload="auto"
           autoPlay
           muted
           playsInline
