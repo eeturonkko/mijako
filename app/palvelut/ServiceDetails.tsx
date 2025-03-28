@@ -180,6 +180,7 @@ export default function ServiceDetails() {
                                 alt={service.imageAlt}
                                 fill
                                 className="object-cover"
+                                priority={true}
                               />
                             </div>
                           </motion.div>
