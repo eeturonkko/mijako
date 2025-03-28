@@ -41,7 +41,7 @@ export default function Header() {
                 passHref
               >
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Meistä
+                  Yritys
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>

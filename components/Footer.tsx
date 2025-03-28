@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Mijako Oy</h3>
             <p className="mb-4">
-              Lukitus- ja turvatekniikan konsultointipalvelu
+              Lukitus- ja turvatekniikan konsultointi- ja asennuspalvelu
             </p>
           </div>
           <div>
@@ -26,19 +27,26 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Yhteystiedot</h3>
             <ul className="space-y-2">
               <li className="flex items-center">
-                <Mail className="mr-2" /> milla.ronkko@mijako.fi
+                <Mail className="mr-2" /> mijako@mijako.fi
               </li>
               <li className="flex items-center">
-                <Phone className="mr-2" /> +358 45 6954 147
+                <Phone className="mr-2" /> +358 44 9734 941 Jani Rönkkö
               </li>
               <li className="flex items-center">
-                <MapPin className="mr-2" /> FIN 01340 Vantaa
+                <Phone className="mr-2" /> +358 45 6954 147 Milla Rönkkö
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} Mijako | All rights reserved.</p>
+          <Image
+            src="/luotettavakumppani.png"
+            alt="Luotettava kumppani"
+            width={200}
+            height={100}
+            className="object-contain mx-auto rounded-lg"
+          />
+          {/*  <p>&copy; {new Date().getFullYear()} Mijako | All rights reserved.</p> */}
         </div>
       </div>
     </footer>

@@ -1,5 +1,16 @@
-import { PenLine, ShieldCheck, Handshake } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import {
+  PenLine,
+  ShieldCheck,
+  Handshake,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   {
@@ -22,6 +33,8 @@ const services = [
       "Materiaalien toimitus tilaajalle",
       "Tarvittava seuranta muutosten/muutostarpeiden osalta",
     ],
+    imageUrl: "/planning.jpg",
+    imageAlt: "Suunnittelupalvelun kuvitus",
   },
   {
     id: "valvonta",
@@ -36,6 +49,8 @@ const services = [
       "Palaverit",
       "Tilaajan edustaja lukitus- ja turvajärjestelmäasioissa työmaavaiheessa",
     ],
+    imageUrl: "/security.jpg",
+    imageAlt: "Valvontapalvelun kuvitus",
   },
   {
     id: "tukitoiminnot",
@@ -49,40 +64,135 @@ const services = [
       "Urakkarajojen tarkistaminen",
       "Ovien tuotantokuvien tarkistaminen ennen tuotantoon menoa",
     ],
+    imageUrl: "/consulting.jpg",
+    imageAlt: "Tukitoimintojen kuvitus",
   },
 ];
 
 export default function ServiceDetails() {
+  const [expandedService, setExpandedService] = useState<string | null>(null);
+
+  const toggleExpand = (id: string) => {
+    setExpandedService(expandedService === id ? null : id);
+  };
+
   return (
-    <div className="space-y-16">
-      {services.map((service) => (
-        <Card
-          key={service.id}
-          id={service.id}
-          className="scroll-mt-20 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fadeSlideDown "
-        >
-          <CardHeader className="bg-gradient-to-r from-purple-700 to-purple-900 text-white p-6">
-            <div className="flex items-center space-x-4">
-              <div className="bg-white rounded-full p-3">{service.icon}</div>
-              <CardTitle className="text-3xl">{service.title}</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent className="p-6">
-            <p className="mb-6 text-gray-600 text-lg">{service.description}</p>
-            <h3 className="text-xl font-semibold mb-4 text-purple-800">
-              Sisältö:
-            </h3>
-            <ul className="space-y-2">
-              {service.details.map((detail, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-purple-600 mr-2">•</span>
-                  <span className="font-medium">{detail}</span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      ))}
+    <div className="space-y-12">
+      {services.map((service) => {
+        const isExpanded = expandedService === service.id;
+
+        return (
+          <motion.div
+            key={service.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card
+              id={service.id}
+              className="scroll-mt-24 overflow-hidden shadow-lg border-0 rounded-xl"
+            >
+              <CardHeader className="bg-white p-0">
+                <div className="relative">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-purple-800"></div>
+                  <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
+                    <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-full p-4 w-20 h-20 flex items-center justify-center shrink-0">
+                      {service.icon}
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-2xl md:text-3xl text-purple-900 mb-2">
+                        {service.title}
+                      </CardTitle>
+                      <p className="text-gray-600 text-lg">
+                        {service.description}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => toggleExpand(service.id)}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 hover:bg-purple-200 transition-colors shrink-0"
+                      aria-label={isExpanded ? "Sulje tiedot" : "Näytä tiedot"}
+                    >
+                      {isExpanded ? (
+                        <ChevronUp className="w-5 h-5 text-purple-800" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-purple-800" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </CardHeader>
+
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    style={{ overflow: "hidden" }}
+                  >
+                    <CardContent className="p-6 md:p-8 bg-gradient-to-br from-purple-50 to-white">
+                      <motion.div
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.1, duration: 0.2 }}
+                      >
+                        <div className="flex flex-col lg:flex-row gap-8">
+                          {/* Left side - Text content */}
+                          <div className="flex-1">
+                            <h3 className="text-xl font-semibold mb-6 text-purple-800 border-b border-purple-200 pb-2">
+                              Palvelun sisältö:
+                            </h3>
+                            <ul className="space-y-3">
+                              {service.details.map((detail, index) => (
+                                <motion.li
+                                  key={index}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{
+                                    delay: 0.1 + index * 0.03,
+                                    duration: 0.2,
+                                  }}
+                                  className="flex items-start bg-white p-3 rounded-lg shadow-sm"
+                                >
+                                  <span className="text-purple-600 mr-2 mt-0.5">
+                                    •
+                                  </span>
+                                  <span className="font-medium text-gray-800">
+                                    {detail}
+                                  </span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Right side - Image */}
+                          <motion.div
+                            className="lg:w-2/5 flex-shrink-0"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.2, duration: 0.3 }}
+                          >
+                            <div className="relative h-full min-h-[300px] rounded-xl overflow-hidden shadow-md">
+                              <Image
+                                src={service.imageUrl || "/placeholder.svg"}
+                                alt={service.imageAlt}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    </CardContent>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Card>
+          </motion.div>
+        );
+      })}
     </div>
   );
 }

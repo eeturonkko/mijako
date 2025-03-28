@@ -19,7 +19,7 @@ export default function About() {
           {/* Text Section */}
           <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
             <h2 className="text-4xl font-bold drop-shadow-xl text-purple-800">
-              Meistä
+              Yritys
             </h2>
             <p className="text-lg text-gray-800 leading-relaxed">
               Olemme erikoistuneet lukitusjärjestelmien suunnitteluun ja
