@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mijako Oy",
-  description: "Mijako Oy: Lukitus- ja turvatekniikan konsultointipalvelu",
+  description: "Lukitus- ja turvatekniikan konsultointi- ja asennuspalvelu",
 };
 
 export default function RootLayout({

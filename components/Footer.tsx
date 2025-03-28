@@ -16,7 +16,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4"></h3>
             <ul className="space-y-2">
               <li>
-                <p>Y-tunnus: 2245428-1</p>
+                <p>Y-tunnus: 3504559-1</p>
               </li>
               <li>
                 <p>Turvallisuusalan elinkeinolupanumero TU/2023/14094</p>
