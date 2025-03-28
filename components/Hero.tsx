@@ -32,7 +32,7 @@ export default function Hero() {
             Mijako Oy
           </h1>
           <p className="text-2xl font-semibold mb-8 max-w-2xl text-white drop-shadow-2xl">
-            Lukitus- ja turvatekniikan konsultointipalvelu
+            Lukitus- ja turvatekniikan konsultointi- ja asennuspalvelu
           </p>
         </div>
       </div>
