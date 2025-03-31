@@ -24,8 +24,6 @@ const services = [
       "Lukitus- ja turvatuotteiden valinta ovityypin ja tilan käyttötarkoituksen perusteella",
       "Suunnitelmat: sijoituspohjakuvat, ovikohtaiset heloitus- ja lukitussuunnitelmat sekä kulku- ja valvonta-alueiden alustavat määritykset",
       "Yhteensovittaminen muiden suunnittelualojen kanssa (esim. sähkö-, lukitus-, kulunvalvonta- ja automaatiosuunnittelu)",
-      "Suunnitelmien tarkistus ja muutosten seuranta",
-      "Suunnittelupalaverit ja materiaalien toimitus tilaajalle",
     ],
     imageUrl: "/planning.jpg",
     imageAlt: "Suunnittelupalvelun kuvitus",
