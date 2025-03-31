@@ -31,7 +31,7 @@ export default function Hero() {
           <h1 className="text-4xl md:text-8xl font-bold mb-4 mt-10 text-white">
             Mijako Oy
           </h1>
-          <p className="text-2xl font-semibold mb-8 max-w-2xl text-white drop-shadow-2xl">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-8 max-w-2xl text-white drop-shadow-2xl">
             Lukitus- ja turvatekniikan konsultointi- ja asennuspalvelu
           </p>
         </div>

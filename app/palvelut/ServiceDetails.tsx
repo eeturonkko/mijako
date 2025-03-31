@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   PenLine,
   ShieldCheck,
@@ -20,18 +20,12 @@ const services = [
     description:
       "Oviympäristön tuotteiden suunnitteluun uusissa ja saneerauskohteissa. Palvelu on toimittajariippumaton.",
     details: [
-      "Materiaaleihin ja hankkeeseen perehtyminen",
-      "Kohdekartoitus (saneerauskohteet)",
-      "Raportti kohdekartoituksesta (saneerauskohteet)",
-      "Lukitus- ja turvatuotteiden valinta ovityypin ja tilan käyttötarkoituksen/ympäristön mukaan",
-      "Sijoituspohjakuvat",
-      "Ovikohtainen heloitus- ja lukitussuunnitelma",
-      "Alustavat kulku- ja valvonta-alueiden määritykset sekä avain- ja tunnistetiedot",
-      "Yhteensovittaminen oviympäristöön liittyvien toimijoiden kanssa (esim. lukitus-, kulunvalvonta-, sähkö-, automaatiosuunnittelu)",
-      "Suunnitelmien tarkistukset ja korjaukset",
-      "Suunnittelupalaverit",
-      "Materiaalien toimitus tilaajalle",
-      "Tarvittava seuranta muutosten/muutostarpeiden osalta",
+      "Hankkeen ja materiaalien läpikäynti sekä kohdekartoitus (saneerauskohteissa raportti mukaan lukien)",
+      "Lukitus- ja turvatuotteiden valinta ovityypin ja tilan käyttötarkoituksen perusteella",
+      "Suunnitelmat: sijoituspohjakuvat, ovikohtaiset heloitus- ja lukitussuunnitelmat sekä kulku- ja valvonta-alueiden alustavat määritykset",
+      "Yhteensovittaminen muiden suunnittelualojen kanssa (esim. sähkö-, lukitus-, kulunvalvonta- ja automaatiosuunnittelu)",
+      "Suunnitelmien tarkistus ja muutosten seuranta",
+      "Suunnittelupalaverit ja materiaalien toimitus tilaajalle",
     ],
     imageUrl: "/planning.jpg",
     imageAlt: "Suunnittelupalvelun kuvitus",
@@ -43,11 +37,10 @@ const services = [
     description:
       "Suunnitelmien toteutuksen valvonta. Palvelu on tilaajan edunvalvontaa hankkeiden toteutusvaiheessa.",
     details: [
-      "Lukitus- ja turvasuunnitelmien toteutuksen valvonta",
-      "Katselmukset",
+      "Lukitus- ja turvasuunnitelmien toteutuksen valvonta ja katselmukset",
       "Raportointi tilaajalle ja toteuttajalle",
-      "Palaverit",
-      "Tilaajan edustaja lukitus- ja turvajärjestelmäasioissa työmaavaiheessa",
+      "Palaverit ja yhteydenpito työmaan osapuolten kanssa",
+      "Tilaajan edustaminen lukitus- ja turvajärjestelmäasioissa työmaavaiheessa",
     ],
     imageUrl: "/security.jpg",
     imageAlt: "Valvontapalvelun kuvitus",
@@ -58,10 +51,9 @@ const services = [
     title: "Tukitoiminnot",
     description: "Konsultointi ja suunnittelusta poikkeava selvitystyö.",
     details: [
-      "Selvitystyöt esim. uuden tuotteen/tuoteperheen toiminnasta tai soveltuvuudesta",
-      "Tarjousten kommentointi lukituksen ja turvatuotteiden osalta mikäli eriteltävissä kokonaisurakasta",
-      "Suunnitelmien tarkistaminen esim. rakennustyöselosteen kommentointi jos ei sisälly jo suunnittelutyöhön",
-      "Urakkarajojen tarkistaminen",
+      "Selvitystyöt esim. uuden tuotteen tai tuoteperheen toiminnasta ja soveltuvuudesta",
+      "Tarjousten ja suunnitelmien kommentointi lukitus- ja turvatuotteiden osalta",
+      "Urakkarajojen ja rakennustyöselosteen tarkistaminen, mikäli ei sisälly suunnittelutyöhön",
       "Ovien tuotantokuvien tarkistaminen ennen tuotantoon menoa",
     ],
     imageUrl: "/consulting.jpg",
@@ -71,9 +63,21 @@ const services = [
 
 export default function ServiceDetails() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const toggleExpand = (id: string) => {
-    setExpandedService(expandedService === id ? null : id);
+    const isExpanding = expandedService !== id;
+    setExpandedService(isExpanding ? id : null);
+
+    if (isExpanding) {
+      setTimeout(() => {
+        const el = cardRefs.current[id];
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.scrollBy(0, -24); // adjust if needed to match scroll-mt
+        }
+      }, 300); // match animation duration
+    }
   };
 
   return (
@@ -84,6 +88,9 @@ export default function ServiceDetails() {
         return (
           <motion.div
             key={service.id}
+            ref={(el) => {
+              cardRefs.current[service.id] = el;
+            }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -154,12 +161,12 @@ export default function ServiceDetails() {
                                     delay: 0.1 + index * 0.03,
                                     duration: 0.2,
                                   }}
-                                  className="flex items-start bg-white p-3 rounded-lg shadow-sm"
+                                  className="flex  bg-white p-3 rounded-lg shadow-sm items-center"
                                 >
                                   <span className="text-purple-600 mr-2 mt-0.5">
                                     •
                                   </span>
-                                  <span className="font-medium text-gray-800">
+                                  <span className=" text-gray-800">
                                     {detail}
                                   </span>
                                 </motion.li>
