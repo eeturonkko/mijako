@@ -15,7 +15,7 @@ export default function PalvelutPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-purple-900">
             Palvelut
           </h1>
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-lg text-gray-700 mb-8 text-pretty">
             Tarjoamme kattavat asiantuntijapalvelut oviympäristön tuotteiden
             suunnitteluun, valvontaan ja konsultointiin. Palvelumme ovat
             toimittajariippumattomia ja räätälöitävissä tarpeidenne mukaan.

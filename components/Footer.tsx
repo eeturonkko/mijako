@@ -52,7 +52,7 @@ export default function Footer() {
             className="object-contain mx-auto rounded-lg"
           />
           <p className="font-semibold text-sm">
-            &copy; {new Date().getFullYear()} Mijako Oy | All rights reserved.
+            &copy; {new Date().getFullYear()} Mijako Oy
           </p>
         </div>
       </div>

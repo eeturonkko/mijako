@@ -22,7 +22,7 @@ export default function About() {
               <h2 className="text-4xl md:text-4xl font-bold drop-shadow-xl text-purple-800">
                 Yritys
               </h2>
-              <p className="text-lg text-gray-800">
+              <p className="text-lg text-gray-800 leading-relaxed">
                 Olemme erikoistuneet lukitusjärjestelmien suunnitteluun ja
                 oviympäristöjen optimointiin. Palvelumme mukautetaan aina
                 tarpeidenne mukaisesti. Olipa kyseessä uuden kiinteistön
@@ -30,7 +30,7 @@ export default function About() {
                 teitä. Tarjoamme laadukasta suunnittelua ja teknisiä ratkaisuja
                 kiinteistöjen turvateknisiin tarpeisiin.
               </p>
-              <p className="text-lg text-gray-800">
+              <p className="text-lg text-gray-800 leading-relaxed">
                 Panostamme tarpeidenne tarkkaan huomioimiseen ja järjestelmien
                 toimivuuteen, mikä tuo säästöjä asennus- ja ylläpitovaiheisiin.
                 Varmistamme oviympäristöjen turvallisuuden, paloturvallisuuden,

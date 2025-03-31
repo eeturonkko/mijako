@@ -151,7 +151,7 @@ export default function ServiceDetails() {
                             <h3 className="text-xl font-semibold mb-6 text-purple-800 border-b border-purple-200 pb-2">
                               Palvelun sisältö:
                             </h3>
-                            <ul className="space-y-3">
+                            <ul className="space-y-3 text-lg">
                               {service.details.map((detail, index) => (
                                 <motion.li
                                   key={index}
@@ -161,12 +161,9 @@ export default function ServiceDetails() {
                                     delay: 0.1 + index * 0.03,
                                     duration: 0.2,
                                   }}
-                                  className="flex  bg-white p-3 rounded-lg shadow-sm items-center"
+                                  className="flex  bg-white p-3 rounded-lg shadow-md items-center"
                                 >
-                                  <span className="text-purple-600 mr-2 mt-0.5">
-                                    •
-                                  </span>
-                                  <span className=" text-gray-800">
+                                  <span className="ml-1 md:text-md text-md text-gray-800">
                                     {detail}
                                   </span>
                                 </motion.li>
