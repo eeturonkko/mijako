@@ -19,7 +19,12 @@ export default function Footer() {
                 <p>Y-tunnus: 3504559-1</p>
               </li>
               <li>
-                <p>Turvallisuusalan elinkeinolupanumero TU/2023/14094</p>
+                <p>
+                  Turvallisuusalan elinkeinolupanumero{" "}
+                  <span className="underline-offset-2 underline">
+                    TU/2023/14094
+                  </span>
+                </p>
               </li>
             </ul>
           </div>
@@ -38,7 +43,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center flex flex-col items-center gap-4">
           <Image
             src="/luotettavakumppani.png"
             alt="Luotettava kumppani"
@@ -46,7 +51,9 @@ export default function Footer() {
             height={100}
             className="object-contain mx-auto rounded-lg"
           />
-          {/*  <p>&copy; {new Date().getFullYear()} Mijako | All rights reserved.</p> */}
+          <p className="font-semibold text-sm">
+            &copy; {new Date().getFullYear()} Mijako Oy | All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
