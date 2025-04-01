@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   PenLine,
   ShieldCheck,
@@ -60,31 +60,48 @@ const services = [
 ];
 
 export default function ServiceDetails() {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [expanded, setExpanded] = useState<string[]>([]);
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-  const toggleExpand = (id: string) => {
-    const isExpanding = expandedService !== id;
-    setExpandedService(isExpanding ? id : null);
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
 
-    if (isExpanding) {
-      setTimeout(() => {
-        const el = cardRefs.current[id];
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-          // Only scroll if screen is bigger than 768px
-          if (window.innerWidth > 768) {
-            window.scrollBy(0, -24);
-          }
-        }
-      }, 300);
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleExpand = (id: string) => {
+    if (isDesktop) {
+      // Desktop: only one expanded
+      const isExpanding = !expanded.includes(id);
+      setExpanded(isExpanding ? [id] : []);
+    } else {
+      // Mobile: toggle multiple
+      setExpanded((prev) =>
+        prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+      );
     }
+
+    setTimeout(() => {
+      const el = cardRefs.current[id];
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (isDesktop) {
+          window.scrollBy(0, -24);
+        }
+      }
+    }, 300);
   };
 
   return (
     <div className="space-y-12">
       {services.map((service) => {
-        const isExpanded = expandedService === service.id;
+        const isExpanded = expanded.includes(service.id);
 
         return (
           <motion.div
@@ -147,7 +164,6 @@ export default function ServiceDetails() {
                         transition={{ delay: 0.1, duration: 0.2 }}
                       >
                         <div className="flex flex-col lg:flex-row gap-8">
-                          {/* Left side - Text content */}
                           <div className="flex-1">
                             <h3 className="text-xl font-semibold mb-6 text-purple-800 border-b border-purple-200 pb-2">
                               Palvelun sisältö:
@@ -162,7 +178,7 @@ export default function ServiceDetails() {
                                     delay: 0.1 + index * 0.03,
                                     duration: 0.2,
                                   }}
-                                  className="flex  bg-white p-3 rounded-lg shadow-md items-center"
+                                  className="flex bg-white p-3 rounded-lg shadow-md items-center"
                                 >
                                   <span className="ml-1 md:text-md text-md text-gray-800">
                                     {detail}
@@ -172,7 +188,6 @@ export default function ServiceDetails() {
                             </ul>
                           </div>
 
-                          {/* Right side - Image */}
                           <motion.div
                             className="lg:w-2/5 flex-shrink-0"
                             initial={{ opacity: 0, x: 20 }}
