@@ -74,7 +74,7 @@ export default function ServiceDetails() {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
           // Only scroll if screen is bigger than 768px
           if (window.innerWidth > 768) {
-            window.scrollBy(0, -12);
+            window.scrollBy(0, -24);
           }
         }
       }, 300);
