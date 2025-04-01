@@ -72,9 +72,12 @@ export default function ServiceDetails() {
         const el = cardRefs.current[id];
         if (el) {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
-          window.scrollBy(0, -24); // adjust if needed to match scroll-mt
+          // Only scroll if screen is bigger than 768px
+          if (window.innerWidth > 768) {
+            window.scrollBy(0, -12);
+          }
         }
-      }, 300); // match animation duration
+      }, 300);
     }
   };
 
